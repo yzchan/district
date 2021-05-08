@@ -1,6 +1,6 @@
 package data
 
-var DistrictMap= map[int]string{
+var DistrictMap = map[int]string{
 	110000: "北京市",
 	110101: "东城区",
 	110102: "西城区",

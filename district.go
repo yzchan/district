@@ -5,6 +5,27 @@ import (
 	"strings"
 )
 
+type Base struct {
+	AdCode   int
+	Name     string
+	AreaCode string
+	PostCode string
+}
+
+type Province struct {
+	Base
+	ShortName string
+	Cities    []City
+}
+
+type City struct {
+	Base
+	Areas []Area
+}
+type Area struct {
+	Base
+}
+
 var Instance *district
 
 type district struct {

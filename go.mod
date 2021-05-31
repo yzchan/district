@@ -1,4 +1,4 @@
-module github.com/yzchan/cn-district
+module github.com/yzchan/district
 
 go 1.16
 

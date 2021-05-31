@@ -37,31 +37,31 @@
 
 本项目包含三级行政区数据和四级行政区数据两部分。三级行政区数据基于官方数据制作，使用map存储区划代码和区划名称，查询效率高。
 
-四级行政区划数据基于官方数据和百度地图制作而成，采用数据库存储。
+四级行政区划数据基于官方数据和百度地图制作而成，采用csv存储。
 
 ## Installation
 
 ```shell
-go get -u github.com/yzchan/cn-district
+go get -u github.com/yzchan/district
 ```
 
 ## Quickstart
 
-```golang
+```go
 package main
 
 import (
 	"fmt"
-	"github.com/yzchan/cn-district/level3"
+	"github.com/yzchan/district"
 )
 
 func main() {
 	// 直接调用原始数据
-	fmt.Println(level3.DistrictMap)
-	fmt.Println(level3.ProvShortName)
+	fmt.Println(district.DistrictMap)
+	fmt.Println(district.ProvShortName)
 
 	// 创建单例实例
-	var d = level3.Instance
+	var d = district.Instance
 
 	// 获取所有省份数据
 	provinces := d.Provinces()
@@ -90,7 +90,6 @@ func main() {
 	primary, secondary := d.ShortNames(510000)
 	fmt.Println(primary, secondary)
 }
-
 ```
 
 ## Features

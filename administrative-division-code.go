@@ -1,4 +1,4 @@
-package level3
+package district
 
 var DistrictMap = map[int]string{
 	110000: "北京市",

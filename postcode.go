@@ -1,4 +1,4 @@
-package level3
+package district
 
 var postCodeMap = map[int]string{
 	110000: "100000",

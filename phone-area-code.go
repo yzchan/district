@@ -1,4 +1,4 @@
-package level3
+package district
 
 var areaCodeMap = map[int]string{
 	110100: "010",

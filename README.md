@@ -57,7 +57,7 @@ import (
 
 func main() {
 	// 直接调用原始数据
-	fmt.Println(district.DistrictMap)
+	fmt.Println(district.Maps)
 	fmt.Println(district.ProvShortName)
 
 	// 创建单例实例

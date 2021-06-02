@@ -1,6 +1,9 @@
 package district
 
 import (
+	"encoding/csv"
+	"os"
+	"strconv"
 	"strings"
 )
 
@@ -25,6 +28,8 @@ type Area struct {
 	Base
 }
 
+var Maps map[int]string
+
 var Instance *district
 
 type district struct {
@@ -36,6 +41,15 @@ type district struct {
 }
 
 func init() {
+	f, _ := os.Open("data/3-level.csv")
+	r := csv.NewReader(f)
+	data, _ := r.ReadAll()
+	Maps = make(map[int]string, 0)
+	for _, line := range data[1:] {
+		code, _ := strconv.Atoi(line[0])
+		Maps[code] = line[1]
+	}
+
 	Instance = &district{}
 	Instance.provinces = make(map[int]string, 0)
 	Instance.cities = make(map[int]string, 0)
@@ -46,7 +60,7 @@ func init() {
 }
 
 func formatData() {
-	for code, name := range DistrictMap {
+	for code, name := range Maps {
 		if code%10000 == 0 {
 			Instance.provinces[code] = name
 			Instance.provCities[code] = make([]int, 0)
@@ -78,7 +92,7 @@ func getCityCode(code int) int {
 // Search 根据关键词搜索地区
 func (d *district) Search(keyword string) (result map[int]string) {
 	result = make(map[int]string, 0)
-	for code, name := range DistrictMap {
+	for code, name := range Maps {
 		if strings.Contains(name, keyword) {
 			result[code] = name
 		}

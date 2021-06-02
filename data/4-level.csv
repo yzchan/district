@@ -1,4 +1,4 @@
-"adcode","parent","level","name","postcode","telcode"
+adCode,"parent","level","name","postcode",areaCode
 110000,0,1,"北京市","",""
 110101,110000,3,"东城区","",""
 110102,110000,3,"西城区","",""

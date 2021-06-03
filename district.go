@@ -10,7 +10,7 @@ import (
 type Base struct {
 	AdCode   int
 	Name     string
-	AreaCode string
+	TelCode  string
 	Postcode string
 }
 
@@ -41,7 +41,7 @@ type district struct {
 }
 
 func init() {
-	f, _ := os.Open("data/3-level.csv")
+	f, _ := os.Open("data/lv3.csv")
 	r := csv.NewReader(f)
 	data, _ := r.ReadAll()
 	Maps = make(map[int]string, 0)

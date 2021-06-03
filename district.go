@@ -11,7 +11,7 @@ type Base struct {
 	AdCode   int
 	Name     string
 	AreaCode string
-	PostCode string
+	Postcode string
 }
 
 type Province struct {

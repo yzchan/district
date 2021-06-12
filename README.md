@@ -94,5 +94,5 @@ func main() {
 
 ## Features
 
-- 增加邮编和区号数据
+- 增加邮编和区号数据(http://cha.buyiju.com/net/cndq.asp)
 - 增加更多数据格式化方法

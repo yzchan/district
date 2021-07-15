@@ -2,6 +2,7 @@ package district
 
 import (
 	"encoding/csv"
+	"fmt"
 	"os"
 	"strconv"
 	"strings"
@@ -41,9 +42,10 @@ type district struct {
 }
 
 func init() {
-	f, _ := os.Open("data/lv3.csv")
+	f, _ := os.Open("data/district.lv3.csv")
 	r := csv.NewReader(f)
 	data, _ := r.ReadAll()
+	fmt.Println(data)
 	Maps = make(map[int]string, 0)
 	for _, line := range data[1:] {
 		code, _ := strconv.Atoi(line[0])

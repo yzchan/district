@@ -1,4 +1,4 @@
-package district
+package data
 
 var ProvShortName = map[string][]string{
 	"北京市":      {"京"},

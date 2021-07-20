@@ -1,4 +1,4 @@
-package district
+package tools
 
 import (
 	"math/rand"

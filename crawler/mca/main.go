@@ -1,9 +1,10 @@
 package main
 
 import (
-	"fmt"
+	"encoding/csv"
 	"github.com/PuerkitoBio/goquery"
 	"net/http"
+	"os"
 	"strings"
 )
 
@@ -18,7 +19,9 @@ func main() {
 	defer func() {
 		_ = resp.Body.Close()
 	}()
-
+	f, err := os.Create("data.csv")
+	w := csv.NewWriter(f)
+	_ = w.Write([]string{"Code", "Name"})
 	dom, err := goquery.NewDocumentFromReader(resp.Body)
 	if err != nil {
 		panic(err)
@@ -29,14 +32,12 @@ func main() {
 		code := s.Find("td").Eq(1).Text()
 		//pk, _ := strconv.Atoi(section)
 		name := s.Find("td").Eq(2).Text()
-		//fmt.Println(i+1, section, province, city, areacode, postcode, isp, simcard)
 		if code != "" {
-			fmt.Println(code, strings.Replace(name, string([]byte{0xC2, 0xA0}), "*", -1))
+			//strings.Replace(name, string([]byte{0xC2, 0xA0}), "", -1)
+			name = strings.TrimSpace(name)
+			_ = w.Write([]string{code, name})
 		}
-
 	})
-	//for i, r := range records {
-	//	fmt.Println(i, r)
-	//}
+	w.Flush()
 
 }

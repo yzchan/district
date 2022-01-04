@@ -24,11 +24,12 @@
 - [县级行政区](https://baike.baidu.com/item/县级行政区/1660163) 为三级行政区  包括市辖区、县级市、县、自治县、旗、自治旗、特区、林区。
 - [乡级行政区](https://baike.baidu.com/item/乡级行政区/8466613) 为四级行政区  包括街道、镇、乡、民族乡、苏木、民族苏木、县辖区。
 
-#### 本项目数据来源：
+## 数据来源：
 
 - 【民政数据】：[2020-1980年中华人民共和国行政区划代码](http://www.mca.gov.cn/article/sj/xzqh/)
 - 【国家统计局】：[统计用区划和城乡划分代码](http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhfdm/)
-- 【百度地图】：[百度地图行政区划adcode映射表](https://lbsyun.baidu.com/index.php?title=open/dev-res) 【更新至21年04月】
+
+[百度地图行政区划adcode映射表【更新至21年04月】](https://lbsyun.baidu.com/index.php?title=open/dev-res) 百度也有提供一份行政区划数据，以excel格式提供下载。但是里面部分乡级行政区划代码并不准确。
 
 ## 省份简称
 

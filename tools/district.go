@@ -41,7 +41,7 @@ type district struct {
 }
 
 func init() {
-	f, _ := os.Open("../data/district.lv3.csv")
+	f, _ := os.Open("../data/mca.csv")
 	r := csv.NewReader(f)
 	data, _ := r.ReadAll()
 	Maps = make(map[int]string, 0)
@@ -99,19 +99,6 @@ func (d *district) Search(keyword string) (result map[int]string) {
 	}
 	return
 }
-
-// ShortNames 获取省级行政区的简称
-//func (d *district) ShortNames(code int) (primary string, secondary string) {
-//	province, exists := d.provinces[code]
-//	if exists {
-//		names := ProvShortName[province]
-//		primary = names[0]
-//		if len(names) > 1 {
-//			secondary = names[1]
-//		}
-//	}
-//	return
-//}
 
 // IsDirectCity 是否直辖市
 func (d *district) IsDirectCity(code int) bool {

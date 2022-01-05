@@ -5,6 +5,7 @@ import (
 	"github.com/PuerkitoBio/goquery"
 	"net/http"
 	"os"
+	"strconv"
 	"strings"
 )
 
@@ -16,10 +17,9 @@ func main() {
 		panic(err)
 	}
 
-	defer func() {
-		_ = resp.Body.Close()
-	}()
-	f, err := os.Create("data.csv")
+	defer resp.Body.Close()
+
+	f, err := os.Create("mca.csv")
 	w := csv.NewWriter(f)
 	_ = w.Write([]string{"Code", "Name"})
 	dom, err := goquery.NewDocumentFromReader(resp.Body)
@@ -30,13 +30,14 @@ func main() {
 	// Find the review items
 	dom.Find("table tr").Each(func(i int, s *goquery.Selection) {
 		code := s.Find("td").Eq(1).Text()
-		//pk, _ := strconv.Atoi(section)
-		name := s.Find("td").Eq(2).Text()
-		if code != "" {
-			//strings.Replace(name, string([]byte{0xC2, 0xA0}), "", -1)
-			name = strings.TrimSpace(name)
-			_ = w.Write([]string{code, name})
+		_, ok := strconv.Atoi(code)
+		if ok != nil {
+			return
 		}
+		//strings.Replace(name, string([]byte{0xC2, 0xA0}), "", -1)
+		name := strings.TrimSpace(s.Find("td").Eq(2).Text())
+		w.Write([]string{code, name})
+
 	})
 	w.Flush()
 

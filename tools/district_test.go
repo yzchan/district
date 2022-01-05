@@ -6,21 +6,6 @@ import (
 	"time"
 )
 
-func TestDistrict_Search(t *testing.T) {
-	d := Instance
-	t.Log("Start testing Search func")
-	adCode := 510000
-	t.Logf("arguments: 四川省[%d]", adCode)
-	primary, secondary := d.ShortNames(adCode)
-	t.Logf("primary, secondary := d.ShortNames(%d)", adCode)
-	t.Logf("primary   = \"%s\"", primary)
-	t.Logf("secondary = \"%s\"", secondary)
-	if primary != "川" || secondary != "蜀" {
-		t.Fatal("error")
-	}
-	t.Log("test ok")
-}
-
 func BenchmarkFind(b *testing.B) {
 	b.StopTimer()
 	d := Instance
